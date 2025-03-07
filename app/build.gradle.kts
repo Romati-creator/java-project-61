@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    application // Подключаем плагин application
 }
 
 group = "hexlet.code"
@@ -16,4 +17,8 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+application {
+    mainClass.set("hexlet.code.App") // Указываем точку входа в приложение
 }
