@@ -1,6 +1,7 @@
 plugins {
     id("java")
     application // Подключаем плагин application
+    jacoco
 }
 
 group = "hexlet.code"
@@ -21,4 +22,8 @@ tasks.test {
 
 application {
     mainClass.set("hexlet.code.App") // Указываем точку входа в приложение
+}
+
+tasks.getByName("run", JavaExec::class) {
+    standardInput = System.`in`
 }
