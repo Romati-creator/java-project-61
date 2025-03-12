@@ -2,6 +2,7 @@ plugins {
     id("java")
     application // Подключаем плагин application
     jacoco
+    id("checkstyle")
 }
 
 group = "hexlet.code"
@@ -26,4 +27,9 @@ application {
 
 tasks.getByName("run", JavaExec::class) {
     standardInput = System.`in`
+}
+
+checkstyle {
+    toolVersion = "10.3.1" // Укажите нужную версию Checkstyle
+    configFile = file("${project.rootDir}/config/checkstyle/checkstyle.xml")
 }
