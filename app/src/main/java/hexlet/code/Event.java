@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Event {
-    public void selection() {
+    public void startGame() {
         Cli cli = new Cli();
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();

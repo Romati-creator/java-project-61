@@ -18,7 +18,7 @@ public class GameSelection {
 
         if (game.equals("2")) {
             Event event = new Event();
-            event.selection();
+            event.startGame();
         }
 
 
