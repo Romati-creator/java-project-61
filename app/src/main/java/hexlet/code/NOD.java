@@ -1,10 +1,9 @@
 package hexlet.code;
 
-
-public class Event {
+public class NOD {
     public static void startGame() {
         Engine.startGame();
-        Engine.playGame("2");
+        Engine.playGame("4");
+
     }
 }
-

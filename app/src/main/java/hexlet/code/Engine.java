@@ -25,7 +25,7 @@ public class Engine {
         Random random = new Random();
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
-            logicGame(random.nextInt(100), random.nextInt(100), gameNumber); // Запуск логики игры
+            logicGame(random.nextInt(100) + 1, random.nextInt(100) + 1, gameNumber); // Запуск логики игры
             if (!userAnswer.equals(correctAnswer)) {
                 System.out.println(userAnswer + " is wrong answer ;(. Correct answer was " + correctAnswer
                         + "\nLet's try again, " + name + "!");
@@ -41,17 +41,49 @@ public class Engine {
     }
 
     public static void logicGame(int numberRandom, int numberRandomTwo, String gameNumber) {
-
+        Random random = new Random();
         if (gameNumber.equals("2")) {
             correctAnswer = numberRandom % 2 == 0 ? "yes" : "no";
             // Выберите ответ
             System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
             //Вопрос
             System.out.println("Question: " + numberRandom);
-            // Ответ игрока
-            userAnswer = SCANNER.nextLine();
-            System.out.println("Your answer: " + userAnswer);
+        } else if (gameNumber.equals("3")) {
+            int operation = random.nextInt(3);
+            String operationSymbol;
+            int result;
+            if (operation == 0) {
+                result = numberRandom + numberRandomTwo;
+                operationSymbol = "+";
+            } else if (operation == 1) {
+                result = numberRandom - numberRandomTwo;
+                operationSymbol = "-";
+            } else {
+                result = numberRandom * numberRandomTwo;
+                operationSymbol = "*";
+            }
+            correctAnswer = String.valueOf(result);
+            // Выберите ответ
+            System.out.println("What is the result of the expression?");
+            //Вопрос
+            System.out.println("Question: " + numberRandom + operationSymbol + numberRandomTwo);
+        } else if (gameNumber.equals("4")) {
+            int countTwo = numberRandomTwo;
+            while (numberRandomTwo != 0) {
+                int temp = numberRandomTwo;
+                numberRandomTwo = numberRandom % numberRandomTwo;
+                numberRandom = temp;
+                correctAnswer = String.valueOf(temp);
+            }
+
+            // Выберите ответ
+            System.out.println("Find the greatest common divisor of given numbers.");
+            //Вопрос
+            System.out.println("Question: " + numberRandom + " " + countTwo);
         }
+        // Ответ игрока
+        userAnswer = SCANNER.nextLine();
+        System.out.println("Your answer: " + userAnswer);
     }
 }
 //        System.out.println("Congratulations, " + name + "!");
