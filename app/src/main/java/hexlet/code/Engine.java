@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -25,7 +26,7 @@ public class Engine {
         Random random = new Random();
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
-            logicGame(random.nextInt(100) + 1, random.nextInt(100) + 1, gameNumber); // Запуск логики игры
+            logicGame(random.nextInt(10) + 1, random.nextInt(10) + 1, gameNumber); // Запуск логики игры
             if (!userAnswer.equals(correctAnswer)) {
                 System.out.println(userAnswer + " is wrong answer ;(. Correct answer was " + correctAnswer
                         + "\nLet's try again, " + name + "!");
@@ -75,16 +76,34 @@ public class Engine {
                 numberRandom = temp;
                 correctAnswer = String.valueOf(temp);
             }
-
             // Выберите ответ
             System.out.println("Find the greatest common divisor of given numbers.");
             //Вопрос
             System.out.println("Question: " + numberRandom + " " + countTwo);
-        }
+        } else if (gameNumber.equals("5")) {
+            int difference = numberRandom - numberRandomTwo;
+            String[] progression = new String[10];
+            int countRandom = random.nextInt(10);
+            progression[0] = String.valueOf(numberRandom);
+            int number = numberRandom;
+
+            for (int i = 1; i < 10; i++) {
+                number += difference;
+                progression[i] = String.valueOf(number);
+            }
+            String value = progression[countRandom];
+            progression[countRandom] = "..";
+
+            // Выберите ответ
+            System.out.println("What number is missing in the progression?");
+            //Вопрос
+            System.out.println("Question: " + Arrays.toString(progression));
+            correctAnswer = String.valueOf(value);
+            }
         // Ответ игрока
         userAnswer = SCANNER.nextLine();
         System.out.println("Your answer: " + userAnswer);
+        }
     }
-}
-//        System.out.println("Congratulations, " + name + "!");
+
 

@@ -11,6 +11,7 @@ public class App {
                 + "2 - Event\n"
                 + "3 - Calc\n"
                 + "4 - NOD\n"
+                + "5 - Progression\n"
                 + "0 - Exit");
 
         // Считывание выбора игры
@@ -24,6 +25,8 @@ public class App {
             Calc.startGame();
         } else if (game.equals("4")) {
             NOD.startGame();
+        } else if (game.equals("5")) {
+            Progression.startGame();
         }
     }
 }
