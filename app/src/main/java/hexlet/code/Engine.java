@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -80,30 +79,31 @@ public class Engine {
             System.out.println("Find the greatest common divisor of given numbers.");
             //Вопрос
             System.out.println("Question: " + numberRandom + " " + countTwo);
-        } else if (gameNumber.equals("5")) {
-            int difference = numberRandom - numberRandomTwo;
-            String[] progression = new String[10];
-            int countRandom = random.nextInt(10);
-            progression[0] = String.valueOf(numberRandom);
-            int number = numberRandom;
-
-            for (int i = 1; i < 10; i++) {
-                number += difference;
-                progression[i] = String.valueOf(number);
+        } else if (gameNumber.equals("6")) {
+            if (numberRandom < 2) {
+                correctAnswer = "no";
+            } else if (numberRandom == 2) {
+                correctAnswer = "yes";
+            } else if (numberRandom % 2 == 0) {
+                correctAnswer = "no";
+            } else {
+                correctAnswer = "yes";
+                for (int i = 3; i <= Math.sqrt(numberRandom); i += 2) {
+                    if (numberRandom % i == 0) {
+                        correctAnswer = "no";
+                        break;
+                    }
+                }
             }
-            String value = progression[countRandom];
-            progression[countRandom] = "..";
-
             // Выберите ответ
-            System.out.println("What number is missing in the progression?");
+            System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
             //Вопрос
-            System.out.println("Question: " + Arrays.toString(progression));
-            correctAnswer = String.valueOf(value);
-            }
+            System.out.println("Question: " + numberRandom);
+        }
         // Ответ игрока
         userAnswer = SCANNER.nextLine();
         System.out.println("Your answer: " + userAnswer);
-        }
     }
+}
 
 

@@ -12,6 +12,7 @@ public class App {
                 + "3 - Calc\n"
                 + "4 - NOD\n"
                 + "5 - Progression\n"
+                + "6 - Prime\n"
                 + "0 - Exit");
 
         // Считывание выбора игры
@@ -27,6 +28,8 @@ public class App {
             NOD.startGame();
         } else if (game.equals("5")) {
             Progression.startGame();
+        } else if (game.equals("6")) {
+            Prime.startGame();
         }
     }
 }
