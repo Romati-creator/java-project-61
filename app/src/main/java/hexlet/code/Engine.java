@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -44,8 +45,6 @@ public class Engine {
         Random random = new Random();
         if (gameNumber.equals("2")) {
             correctAnswer = numberRandom % 2 == 0 ? "yes" : "no";
-            // Выберите ответ
-            System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
             //Вопрос
             System.out.println("Question: " + numberRandom);
         } else if (gameNumber.equals("3")) {
@@ -63,10 +62,8 @@ public class Engine {
                 operationSymbol = "*";
             }
             correctAnswer = String.valueOf(result);
-            // Выберите ответ
-            System.out.println("What is the result of the expression?");
             //Вопрос
-            System.out.println("Question: " + numberRandom + operationSymbol + numberRandomTwo);
+            System.out.println("Question: " + numberRandom + " " + operationSymbol + " " + numberRandomTwo);
         } else if (gameNumber.equals("4")) {
             int countTwo = numberRandomTwo;
             while (numberRandomTwo != 0) {
@@ -75,10 +72,24 @@ public class Engine {
                 numberRandom = temp;
                 correctAnswer = String.valueOf(temp);
             }
-            // Выберите ответ
-            System.out.println("Find the greatest common divisor of given numbers.");
             //Вопрос
             System.out.println("Question: " + numberRandom + " " + countTwo);
+        } else if (gameNumber.equals("5")) {
+            int difference = numberRandom - numberRandomTwo;
+            String[] progression = new String[10];
+            int countRandom = random.nextInt(10);
+            progression[0] = String.valueOf(numberRandom);
+            int number = numberRandom;
+
+            for (int i = 1; i < 10; i++) {
+                number += difference;
+                progression[i] = String.valueOf(number);
+            }
+            String value = progression[countRandom];
+            progression[countRandom] = "..";
+            //Вопрос
+            System.out.println("Question: " + Arrays.toString(progression));
+            correctAnswer = String.valueOf(value);
         } else if (gameNumber.equals("6")) {
             if (numberRandom < 2) {
                 correctAnswer = "no";
@@ -95,8 +106,6 @@ public class Engine {
                     }
                 }
             }
-            // Выберите ответ
-            System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
             //Вопрос
             System.out.println("Question: " + numberRandom);
         }
