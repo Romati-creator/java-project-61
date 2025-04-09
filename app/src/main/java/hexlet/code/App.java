@@ -1,7 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
-
+import hexlet.code.games.Prime;
+import hexlet.code.games.Event;
+import hexlet.code.games.Calc;
+import hexlet.code.games.NOD;
+import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {

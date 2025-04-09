@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -63,7 +62,7 @@ public class Engine {
             }
             correctAnswer = String.valueOf(result);
             //Вопрос
-            System.out.println("Question: " + numberRandom + " " + operationSymbol + " "+ numberRandomTwo);
+            System.out.println("Question: " + numberRandom + " " + operationSymbol + " " + numberRandomTwo);
         } else if (gameNumber.equals("4")) {
             int countTwo = numberRandomTwo;
             while (numberRandomTwo != 0) {
