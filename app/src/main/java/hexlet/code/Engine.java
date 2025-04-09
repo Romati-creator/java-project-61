@@ -12,7 +12,6 @@ public class Engine {
 
     public static void startGame() {
         // Приветствие пользователя
-        System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         // Считывание имени пользователя
         name = SCANNER.nextLine();
