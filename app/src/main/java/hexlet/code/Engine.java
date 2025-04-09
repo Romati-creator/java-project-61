@@ -63,7 +63,7 @@ public class Engine {
             }
             correctAnswer = String.valueOf(result);
             //Вопрос
-            System.out.println("Question: " + numberRandom + " " + operationSymbol + " " + numberRandomTwo);
+            System.out.println("Question: " + numberRandom + " " + operationSymbol + " "+ numberRandomTwo);
         } else if (gameNumber.equals("4")) {
             int countTwo = numberRandomTwo;
             while (numberRandomTwo != 0) {
@@ -88,7 +88,7 @@ public class Engine {
             String value = progression[countRandom];
             progression[countRandom] = "..";
             //Вопрос
-            System.out.println("Question: " + Arrays.toString(progression));
+            System.out.println("Question: " + String.join(" ", progression));
             correctAnswer = String.valueOf(value);
         } else if (gameNumber.equals("6")) {
             if (numberRandom < 2) {
