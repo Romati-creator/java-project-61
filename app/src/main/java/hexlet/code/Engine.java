@@ -8,6 +8,7 @@ public class Engine {
     private static String userAnswer;
     private static String correctAnswer;
     private static final int ROUNDS_COUNT = 3; // Количество раундов
+    private static final int RANGE_COUNT = 10;
     private static final Scanner SCANNER = new Scanner(System.in);
 
     public static void startGame() {
@@ -25,7 +26,7 @@ public class Engine {
         Random random = new Random();
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
-            logicGame(random.nextInt(10) + 1, random.nextInt(10) + 1, gameNumber); // Запуск логики игры
+            logicGame(random.nextInt(RANGE_COUNT) + 1, random.nextInt(RANGE_COUNT) + 1, gameNumber); // Запуск логики
             if (!userAnswer.equals(correctAnswer)) {
                 System.out.println(userAnswer + " is wrong answer ;(. Correct answer was " + correctAnswer
                         + "\nLet's try again, " + name + "!");
@@ -47,7 +48,7 @@ public class Engine {
             //Вопрос
             System.out.println("Question: " + numberRandom);
         } else if (gameNumber.equals("3")) {
-            int operation = random.nextInt(3);
+            int operation = random.nextInt(ROUNDS_COUNT);
             String operationSymbol;
             int result;
             if (operation == 0) {
@@ -75,12 +76,12 @@ public class Engine {
             System.out.println("Question: " + numberRandom + " " + countTwo);
         } else if (gameNumber.equals("5")) {
             int difference = numberRandom - numberRandomTwo;
-            String[] progression = new String[10];
-            int countRandom = random.nextInt(10);
+            String[] progression = new String[RANGE_COUNT];
+            int countRandom = random.nextInt(RANGE_COUNT);
             progression[0] = String.valueOf(numberRandom);
             int number = numberRandom;
 
-            for (int i = 1; i < 10; i++) {
+            for (int i = 1; i < RANGE_COUNT; i++) {
                 number += difference;
                 progression[i] = String.valueOf(number);
             }
