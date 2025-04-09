@@ -11,4 +11,5 @@ bin
 .project*
 .classpath
 .idea/
+.idea
 .factorypath

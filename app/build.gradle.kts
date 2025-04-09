@@ -1,5 +1,4 @@
 plugins {
-    id("java")
     application // Подключаем плагин application
     jacoco
     id("checkstyle")
