@@ -99,7 +99,7 @@ public class Engine {
                 correctAnswer = "no";
             } else {
                 correctAnswer = "yes";
-                for (int i = 3; i <= Math.sqrt(numberRandom); i += 2) {
+                for (int i = ROUNDS_COUNT; i <= Math.sqrt(numberRandom); i += 2) {
                     if (numberRandom % i == 0) {
                         correctAnswer = "no";
                         break;
