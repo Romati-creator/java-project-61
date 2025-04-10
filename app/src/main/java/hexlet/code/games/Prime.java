@@ -14,7 +14,7 @@ public class Prime {
         String action = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
         for (int i = 0; i < countRound; i++) {
-            int numberRandom = random.nextInt(countSize);
+            int numberRandom = random.nextInt(countSize) + 2;
             question[i] = String.valueOf(numberRandom);
 
             if (numberRandom < 2) {
@@ -26,7 +26,7 @@ public class Prime {
             } else {
                 rightAnswer[i] = "yes";
                 for (int x = countRound; x <= Math.sqrt(numberRandom); x += 2) {
-                    if (numberRandom % i == 0) {
+                    if (numberRandom % x == 0) {
                         rightAnswer[i] = "no";
                         break;
                     }
