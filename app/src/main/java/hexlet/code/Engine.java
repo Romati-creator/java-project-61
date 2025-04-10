@@ -16,6 +16,7 @@ public class Engine {
         System.out.println("Hello, " + name + "!");
         // Выберите ответ
         System.out.println(action);
+
         for (int i = 0; i < ROUNDS_COUNT; i++) {
             //Вопрос
             System.out.println("Question: " + question[i]);

@@ -7,12 +7,14 @@ import java.util.Random;
 public class Prime {
     public static void startGame() {
         Random random = new Random();
-        String[] rightAnswer = new String[3];
-        String[] question = new String[3];
+        int countRound = 3;
+        int countSize = 10;
+        String[] rightAnswer = new String[countRound];
+        String[] question = new String[countRound];
         String action = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-        for (int i = 0; i < 3; i++) {
-            int numberRandom = random.nextInt(10);
+        for (int i = 0; i < countRound; i++) {
+            int numberRandom = random.nextInt(countSize);
             question[i] = String.valueOf(numberRandom);
 
             if (numberRandom < 2) {
@@ -23,7 +25,7 @@ public class Prime {
                 rightAnswer[i] = "no";
             } else {
                 rightAnswer[i] = "yes";
-                for (int x = 3; x <= Math.sqrt(numberRandom); x += 2) {
+                for (int x = countRound; x <= Math.sqrt(numberRandom); x += 2) {
                     if (numberRandom % i == 0) {
                         rightAnswer[i] = "no";
                         break;

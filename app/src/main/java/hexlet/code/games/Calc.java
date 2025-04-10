@@ -7,14 +7,16 @@ import java.util.Random;
 public class Calc {
     public static void startGame() {
         Random random = new Random();
-        String[] rightAnswer = new String[3];
-        String[] question = new String[3];
+        int countRound = 3;
+        int countSize = 10;
+        String[] rightAnswer = new String[countRound];
+        String[] question = new String[countRound];
         String action = "What is the result of the expression?";
 
-        for (int i = 0; i < 3; i++) {
-            int operation = random.nextInt(3);
-            int numberRandom = random.nextInt(10);
-            int numberRandomTwo = random.nextInt(10);
+        for (int i = 0; i < countRound; i++) {
+            int operation = random.nextInt(countRound);
+            int numberRandom = random.nextInt(countSize);
+            int numberRandomTwo = random.nextInt(countSize);
 
             int result;
             if (operation == 0) {
