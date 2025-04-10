@@ -14,8 +14,8 @@ public class NOD {
         String action = "Find the greatest common divisor of given numbers.";
 
         for (int i = 0; i < countRound; i++) {
-            int numberRandom = random.nextInt(countSize);
-            int numberRandomTwo = random.nextInt(countSize);
+            int numberRandom = random.nextInt(countSize) + 1;
+            int numberRandomTwo = random.nextInt(countSize) + 1;
             question[i] = numberRandom + " " + numberRandomTwo;
 
             while (numberRandomTwo != 0) {
