@@ -5,18 +5,19 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Calc {
+    private static final int NUMBER_OF_ELEMENTS = 3;
+    private static final int MAX_VALUE = 10;
+
     public static void startGame() {
         Random random = new Random();
-        int countRound = 3;
-        int countSize = 10;
-        String[] rightAnswer = new String[countRound];
-        String[] question = new String[countRound];
+        String[] rightAnswer = new String[NUMBER_OF_ELEMENTS];
+        String[] question = new String[NUMBER_OF_ELEMENTS];
         String action = "What is the result of the expression?";
 
-        for (int i = 0; i < countRound; i++) {
-            int operation = random.nextInt(countRound);
-            int numberRandom = random.nextInt(countSize);
-            int numberRandomTwo = random.nextInt(countSize);
+        for (int i = 0; i < NUMBER_OF_ELEMENTS; i++) {
+            int operation = random.nextInt(NUMBER_OF_ELEMENTS);
+            int numberRandom = random.nextInt(MAX_VALUE);
+            int numberRandomTwo = random.nextInt(MAX_VALUE);
 
             int result;
             if (operation == 0) {
