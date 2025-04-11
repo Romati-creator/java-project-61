@@ -26,7 +26,7 @@ public class App {
         System.out.println("Your choice: " + game);
 
         if (game.equals("1")) {
-            Cli.startGame();
+            Cli.greeting();
         } else if (game.equals("2")) {
             Event.startGame();
         } else if (game.equals("3")) {
