@@ -16,7 +16,7 @@ public class Calc {
             int operation = random.nextInt(ROUNDS_COUNT);
             int numberRandom = random.nextInt(MAX_VALUE);
             int numberRandomTwo = random.nextInt(MAX_VALUE);
-            String operator = getOpertor(operation, numberRandom, numberRandomTwo);
+            String operator = getOpertor(operation);
             int result = calculation(numberRandom, numberRandomTwo, operator);
             questionAndAnswer[i][0] = numberRandom + " " + operator + " " + numberRandomTwo;
             questionAndAnswer[i][1] = String.valueOf(result);
@@ -35,7 +35,7 @@ public class Calc {
                 throw new IllegalArgumentException("Unknown operator: " + operator);
         }
     }
-    private static String getOpertor(int operation, int numberRandom, int numberRandomTwo) {
+    private static String getOpertor(int operation) {
         switch (operation) {
             case 0:
                 return "+";
