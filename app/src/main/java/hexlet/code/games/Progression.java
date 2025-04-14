@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import java.util.Random;
-import static hexlet.code.Engine.NUMBER_OF_ELEMENTS;
+import static hexlet.code.Engine.ROUNDS_COUNT;
 
 public class Progression {
     private static final int MAX_VALUE = 10;
@@ -10,8 +10,8 @@ public class Progression {
     private static final String ACTION = "What number is missing in the progression?";
 
     public static void startGame() {
-        String[][] questionAndAnswer = new String[NUMBER_OF_ELEMENTS][2];
-        for (int i = 0; i < NUMBER_OF_ELEMENTS; i++) {
+        String[][] questionAndAnswer = new String[ROUNDS_COUNT][2];
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
             int numberRandom = RANDOM.nextInt(MAX_VALUE);
             int difference = RANDOM.nextInt(MAX_VALUE / 2) + 1;
             int hiddenIndex = RANDOM.nextInt(MAX_VALUE);
@@ -35,11 +35,7 @@ public class Progression {
     }
 
     private static String createQuestion(String[] progression) {
-        StringBuilder questionString = new StringBuilder();
-        for (String num : progression) {
-            questionString.append(num).append(" ");
-        }
-        return questionString.toString().trim();
+        return String.join(" ", progression);
     }
 }
 

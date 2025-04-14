@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import java.util.Random;
-import static hexlet.code.Engine.NUMBER_OF_ELEMENTS;
+import static hexlet.code.Engine.ROUNDS_COUNT;
 
 public class Calc {
     private static final int MAX_VALUE = 10;
@@ -10,32 +10,41 @@ public class Calc {
 
     public static void startGame() {
         Random random = new Random();
-        String[][] questionAndAnswer = new String[NUMBER_OF_ELEMENTS][2];
+        String[][] questionAndAnswer = new String[ROUNDS_COUNT][2];
 
-        for (int i = 0; i < NUMBER_OF_ELEMENTS; i++) {
-            int operation = random.nextInt(NUMBER_OF_ELEMENTS);
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
+            int operation = random.nextInt(ROUNDS_COUNT);
             int numberRandom = random.nextInt(MAX_VALUE);
             int numberRandomTwo = random.nextInt(MAX_VALUE);
-            calculation(numberRandom, numberRandomTwo, operation, questionAndAnswer, i);
+            String operator = getOpertor(operation, numberRandom, numberRandomTwo);
+            int result = calculation(numberRandom, numberRandomTwo, operator);
+            questionAndAnswer[i][0] = numberRandom + " " + operator + " " + numberRandomTwo;
+            questionAndAnswer[i][1] = String.valueOf(result);
         }
         Engine.playGame1(questionAndAnswer, ACTION);
     }
-    private static void calculation(int numberRandom, int numberRandomTwo, int operation,
-                                    String[][] questionAndAnswer, int index) {
-        int result;
-
-        if (operation == 0) {
-            result = numberRandom + numberRandomTwo;
-            questionAndAnswer[index][0] = numberRandom + " + " + numberRandomTwo;
-            questionAndAnswer[index][1] = String.valueOf(result);
-        } else if (operation == 1) {
-            result = numberRandom - numberRandomTwo;
-            questionAndAnswer[index][0] = numberRandom + " - " + numberRandomTwo;
-            questionAndAnswer[index][1] = String.valueOf(result);
-        } else {
-            result = numberRandom * numberRandomTwo;
-            questionAndAnswer[index][0] = numberRandom + " * " + numberRandomTwo;
-            questionAndAnswer[index][1] = String.valueOf(result);
+    private static int calculation(int numberRandom, int numberRandomTwo, String operator) {
+        switch (operator) {
+            case "+":
+                return numberRandom + numberRandomTwo;
+            case "-":
+                return numberRandom - numberRandomTwo;
+            case "*":
+                return numberRandom * numberRandomTwo;
+            default:
+                throw new IllegalArgumentException("Unknown operator: " + operator);
+        }
+    }
+    private static String getOpertor(int operation, int numberRandom, int numberRandomTwo) {
+        switch (operation) {
+            case 0:
+                return "+";
+            case 1:
+                return "-";
+            case 2:
+                return "*";
+            default:
+                throw new IllegalArgumentException("Unknown operation index: " + operation);
         }
     }
 }

@@ -3,8 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static final int NUMBER_OF_ELEMENTS = 3;
-    private static final int ROUNDS_COUNT = 3; // Количество раундов
+    public static final int ROUNDS_COUNT = 3;
     private static final Scanner SCANNER = new Scanner(System.in);
 
     public static void playGame1(String[][] questionAndAnswer, String action) {
@@ -28,9 +27,8 @@ public class Engine {
                 System.out.println(userAnswer + " is wrong answer ;(. Correct answer was " + questionAndAnswer[i][1]
                         + "\nLet's try again, " + name + "!");
                 return;
-            } else {
-                System.out.println("Correct!");
             }
+            System.out.println("Correct!");
         }
         // Поздравление после завершения всех раундов
         System.out.println("Congratulations, " + name + "!");

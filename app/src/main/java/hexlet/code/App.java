@@ -25,18 +25,26 @@ public class App {
         // Твой выбор
         System.out.println("Your choice: " + game);
 
-        if (game.equals("1")) {
-            Cli.greeting();
-        } else if (game.equals("2")) {
-            Event.startGame();
-        } else if (game.equals("3")) {
-            Calc.startGame();
-        } else if (game.equals("4")) {
-            NOD.startGame();
-        } else if (game.equals("5")) {
-            Progression.startGame();
-        } else if (game.equals("6")) {
-            Prime.startGame();
+        switch (game) {
+            case "1":
+                Cli.greeting();
+                break;
+            case "2":
+                Event.startGame();
+                break;
+            case "3":
+                Calc.startGame();
+                break;
+            case "4":
+                NOD.startGame();
+                break;
+            case "5":
+                Progression.startGame();
+                break;
+            case "6":
+                Prime.startGame();
+                break;
+            default:  System.out.println("Wrong choice. Please select a number from 1 to 6.");
         }
     }
 }

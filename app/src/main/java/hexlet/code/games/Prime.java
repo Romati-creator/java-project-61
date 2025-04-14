@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 
-import static hexlet.code.Engine.NUMBER_OF_ELEMENTS;
+import static hexlet.code.Engine.ROUNDS_COUNT;
 
 public class Prime {
     private static final int MAX_VALUE = 10;
@@ -12,9 +12,9 @@ public class Prime {
 
     public static void startGame() {
         Random random = new Random();
-        String[][] questionAndAnswer = new String[NUMBER_OF_ELEMENTS][2];
+        String[][] questionAndAnswer = new String[ROUNDS_COUNT][2];
 
-        for (int i = 0; i < NUMBER_OF_ELEMENTS; i++) {
+        for (int i = 0; i < ROUNDS_COUNT; i++) {
             int numberRandom = random.nextInt(MAX_VALUE) + 2;
             questionAndAnswer[i][0] = String.valueOf(numberRandom);
             questionAndAnswer[i][1] = isPrime(numberRandom) ? "yes" : "no";
@@ -32,7 +32,7 @@ public class Prime {
         if (number % 2 == 0) {
             return false;
         }
-        for (int x = NUMBER_OF_ELEMENTS; x <= Math.sqrt(number); x += 2) {
+        for (int x = ROUNDS_COUNT; x <= Math.sqrt(number); x += 2) {
             if (number % x == 0) {
                 return false;
             }
